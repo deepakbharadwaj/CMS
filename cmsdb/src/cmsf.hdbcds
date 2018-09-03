@@ -1,0 +1,46 @@
+namespace CMS.cmsdb;
+
+context cmsf {
+
+    /*@@layout{"layoutInfo":{"x":-156,"y":-36.5}}*/
+    entity Users {
+        key UId  : String(10);
+            Pwd  : String(25)  not null;
+            Role : String(100) not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-499,"y":-25.5}}*/
+    entity Customers {
+        key CId      : String(10);
+            CName    : String(100) not null;
+            CPhNo    : String(10)  not null;
+            CAddr    : String(100);
+            CEmailId : String(30);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-854,"y":181.5}}*/
+    entity Inventory {
+        key PId    : String(10);
+            PName  : String(100) not null;
+            QtyRem : String(10)  not null;
+            Price  : String(10)  not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-901,"y":-111.5}}*/
+    entity Orders {
+        key OId           : String(10);
+            CId           : String(10) not null;
+            TotalPrice    : String(10) not null;
+            DueDate       : String(10) not null;
+            UId           : String(10) not null;
+            PaymentStatus : String(10) not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-513,"y":-187.5}}*/
+    entity OrderDesc {
+        OId   : String(10);
+        PId   : String(10);
+        Price : String(10);
+        Qty   : String(10);
+    };
+};

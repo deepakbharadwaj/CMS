@@ -1,0 +1,24 @@
+ID: CMS
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: cmsui
+   type: html5
+   path: cmsui
+
+ - name: cmsdb
+   type: hdb
+   path: cmsdb
+   requires:
+    - name: hdi_cmsdb
+
+
+resources:
+ - name: hdi_cmsdb
+   parameters:
+      config:
+         schema: cms
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
